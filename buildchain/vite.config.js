@@ -7,11 +7,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default ({ command }) => ({
-  // base: command === 'serve' ? '' : '/dist/',
   build: {
-    emptyOutDir: true,
-    manifest: true,
-    // outDir: '../cms/web/dist',
     rollupOptions: {
       input: {
         app: "/src/js/app.ts",
@@ -26,13 +22,9 @@ export default ({ command }) => ({
       moduleDirectories: [path.resolve("./node_modules")],
     }),
   ],
-  publicDir: "../src/public",
   resolve: {
     alias: {
       "@": "/src",
     },
-  },
-  server: {
-    host: "0.0.0.0",
   },
 });
