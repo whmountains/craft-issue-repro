@@ -7,16 +7,6 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default ({ command }) => ({
-  build: {
-    rollupOptions: {
-      input: {
-        app: "/src/js/app.ts",
-      },
-      output: {
-        sourcemap: true,
-      },
-    },
-  },
   plugins: [
     nodeResolve({
       moduleDirectories: [path.resolve("./node_modules")],
