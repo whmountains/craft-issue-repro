@@ -22,9 +22,4 @@ export default ({ command }) => ({
       moduleDirectories: [path.resolve("./node_modules")],
     }),
   ],
-  resolve: {
-    alias: {
-      "@": "/src",
-    },
-  },
 });
