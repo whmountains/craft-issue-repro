@@ -22,37 +22,9 @@ export default ({ command }) => ({
     },
   },
   plugins: [
-    critical({
-      criticalUrl: "https://nystudio107.com",
-      criticalBase: "../cms/web/dist/criticalcss/",
-      criticalPages: [{ uri: "/", template: "index" }],
-      criticalConfig: {},
-    }),
-    legacy({
-      targets: ["defaults", "not IE 11"],
-    }),
     nodeResolve({
       moduleDirectories: [path.resolve("./node_modules")],
     }),
-    ViteRestart({
-      reload: ["../src/templates/**/*"],
-    }),
-    vue(),
-    // Static Asset Fixer, see: https://github.com/vitejs/vite/issues/2394
-    {
-      name: "static-asset-fixer",
-      enforce: "post",
-      apply: "serve",
-      transform: (code, id) => {
-        return {
-          code: code.replace(
-            /\/src\/(.*)\.(svg|jp?g|png|webp)/g,
-            "http://localhost:3000/src/$1.$2"
-          ),
-          map: null,
-        };
-      },
-    },
   ],
   publicDir: "../src/public",
   resolve: {
